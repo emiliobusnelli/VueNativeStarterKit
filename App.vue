@@ -1,11 +1,15 @@
 <template>
-  <view class="container">
-    <text class="text-color-primary">My Vue Native App</text>
-    
-  </view>
+  <app-navigator>
+  </app-navigator>
 </template>
 
 <script>
+import {
+  createAppContainer,
+  createBottomTabNavigator,
+  createMaterialTopTabNavigator,
+  createStackNavigator,
+} from "vue-native-router";
 
 
 import Vue from "vue-native-core";
@@ -15,19 +19,37 @@ import { VueNativeBase } from "native-base";
 Vue.use(VueNativeBase);
 
 
+import DeckScreen from "./screens/Deck.vue";
+import DetailsScreen from "./screens/Details.vue";
+import PriceScreen from "./screens/Price.vue";
+
+
+
+
+const IOSTabs = createBottomTabNavigator(
+  {
+    Home: DeckScreen,
+    Price: PriceScreen,
+    Details: DetailsScreen,
+    
+  }
+);
+const AndroidTabs = createMaterialTopTabNavigator(
+  {
+    Home: DeckScreen,
+    Price: PriceScreen,
+    Details: DetailsScreen,
+    
+  }
+);
+const StackNavigator = createStackNavigator(
+  {
+    IOSTabs,
+    AndroidTabs
+  }
+);
+const AppNavigator = createAppContainer(StackNavigator);
 export default {
-  
+  components: { AppNavigator },
 }
 </script>
-
-<style>
-.container {
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-.text-color-primary {
-  color: blue;
-}
-</style>
