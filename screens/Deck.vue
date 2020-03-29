@@ -1,43 +1,47 @@
 <template>
-  <view class="container">
-    <text class="pageTitle">Deck Estimation View</text>
-
-
-    <scroll-view :style="{width: '100%'}">
-      <view class="">
-
-        <view>
-          <text-input
-          class="ftInput"
-        />
-        </view>
-        
-        
-      </view>
-    </scroll-view>
-
-
-
-  </view>
+  <nb-container>
+    <nb-header>
+      <text>Title<text>
+    </nb-header>
+    <nb-content>
+      <nb-form>
+        <nb-picker
+          mode="dropdown"
+          :iosIcon="getIosIcon()"
+          placeholder="Select your SIM"
+          placeholderStyle="{ color: '#bfc6ea' }"
+          placeholderIconColor="#007aff"
+          :selectedValue="selected"
+          :onValueChange="onValueChange"
+        >
+          <item label="$6" value="key0" />
+          <item label="$7" value="key1" />
+          <item label="$8" value="key2" />
+          <item label="$9" value="key3" />
+          <item label="$10" value="key4" />
+        </nb-picker>
+      </nb-form>
+    </nb-content>
+  </nb-container>
 </template>
 
 <script>
+import React from "react";
+import { Picker, Icon } from "native-base";
 export default {
+  components: { Item: Picker.Item },
+  data: function() {
+    return {
+      selected: ""
+    };
+  },
   methods: {
+    onValueChange: function(value) {
+      this.selected = value;
+    },
+    getIosIcon: function() {
+      return <Icon name="ios-arrow-down-outline" />;
+    }
   }
-}
+};
 </script>
-
-<style>
-.pageTitle {
-  text-align: center;
-  font-size: 30;
-  font-weight: bold;
-}
-.ftInput {
-  height: 40;
-  width: 300;
-  border-color: gray;
-  border-width: 1;
-}
-</style>
