@@ -19,25 +19,25 @@ import { VueNativeBase } from "native-base";
 Vue.use(VueNativeBase);
 
 
-import DeckScreen from "./screens/Deck.vue";
+import HomeScreen from "./screens/Home.vue";
 import DetailsScreen from "./screens/Details.vue";
-import PriceScreen from "./screens/Price.vue";
+import AboutScreen from "./screens/About.vue";
 
 
 
 
 const IOSTabs = createBottomTabNavigator(
   {
-    Home: DeckScreen,
-    Price: PriceScreen,
+    Home: HomeScreen,
+    About: AboutScreen,
     Details: DetailsScreen,
     
   }
 );
 const AndroidTabs = createMaterialTopTabNavigator(
   {
-    Home: DeckScreen,
-    Price: PriceScreen,
+    Home: HomeScreen,
+    About: AboutScreen,
     Details: DetailsScreen,
     
   }

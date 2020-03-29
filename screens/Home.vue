@@ -1,6 +1,6 @@
 <template>
     <view class="container">
-        <text class="pageTitle">Details Page View</text>
+        <text class="pageTitle">Home Page View</text>
     </view>
 </template>
 

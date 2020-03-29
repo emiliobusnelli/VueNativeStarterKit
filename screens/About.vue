@@ -1,6 +1,6 @@
 <template>
     <view class="container">
-        <text class="pageTitle">Deck Price View</text>
+        <text class="pageTitle">About Page View</text>
     </view>
 </template>
 
